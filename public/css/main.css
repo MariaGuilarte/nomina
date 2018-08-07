@@ -1,0 +1,15 @@
+.btn-trash {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+  
+  color: #fff;
+  background-color: #3490dc;
+  border-color: #3490dc;
+}
+
+.btn-trash:hover {
+  color: #fff;
+  background-color: #227dc7;
+  border-color: #2176bd;
+}
