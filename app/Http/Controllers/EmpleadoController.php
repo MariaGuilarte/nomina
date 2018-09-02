@@ -7,6 +7,7 @@ use App\Departamento;
 use App\Deduccion;
 use App\Puesto;
 use App\Pago;
+use App\Semana;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateEmpleado;
 use App\Http\Requests\StoreEmpleado;
@@ -37,15 +38,15 @@ class EmpleadoController extends Controller
       
       if( $empleado->save() ){
         return view("empleados.show", ["empleado"=>$empleado]);
-      }else {
+      }else{
         return redirect()->route('articles.index', ["mensaje"=>"No se pudo guardar el registro"]);
       }
     }
 
     public function show(Empleado $empleado)
     {
-      $deducciones = Deduccion::all();
-      return view('empleados.show', ["empleado"=>$empleado, "deducciones" => $deducciones]);
+      // echo Deduccion::all();
+      return view('empleados.show', ["empleado"=>$empleado]);
     }
 
     public function edit(Empleado $empleado)
@@ -59,7 +60,6 @@ class EmpleadoController extends Controller
     {
       $empleado->nombre = $request->nombre ? $request->nombre : $empleado->nombre;
       $empleado->microsip = $request->microsip ? $request->microsip : $empleado->microsip;
-      $empleado->tipo = $request->tipo ? $request->tipo : $empleado->tipo;
       $empleado->departamento_id = $request->departamento_id ? $request->departamento_id : $empleado->departamento_id;
       $empleado->puesto_id = $request->puesto_id ? $request->puesto_id : $empleado->puesto_id;
       
@@ -77,6 +77,10 @@ class EmpleadoController extends Controller
       }else {
         return redirect()->route('empleados.index');
       }
+    }
+    
+    public function workedDays( Empleado $empleado ){
+      
     }
     
 }

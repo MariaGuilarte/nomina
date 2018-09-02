@@ -10,4 +10,16 @@ class Pago extends Model
     return $this->belongsTo('App\Empleado');
   }
   
+  function semana(){
+    return $this->belongsTo('App\Semana');
+  }
+  
+  function deduccions(){
+    return $this->belongsToMany('App\Deduccion')->withTimestamps();
+  }
+  
+  public function scopeFecha($query, $fecha)
+  {
+    return $query->where('fecha', '=', $fecha);
+  }
 }

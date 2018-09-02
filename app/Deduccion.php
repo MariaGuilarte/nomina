@@ -6,12 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Deduccion extends Model
 {
-  function empleados(){
-    return $this->hasMany('App\Empleado');
+  function pagos(){
+    return $this->belongsToMany('App\Pago')->withTimestamps();
   }
-  
-  function semana(){
-    return $this->belongsTo('App\Semana');
-  }
-  
 }

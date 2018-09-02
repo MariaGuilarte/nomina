@@ -5,26 +5,25 @@
 @section('content')
 <div class="row">
   <div class="col-md-6">
-    <div class="card departamento">
+    <div class="card deduccion">
       <div class="card-header">
-        <h1>Departamento de {{ $departamento->nombre }}</h1>
+        <h1>Deduccion {{ $deduccion->nombre }}</h1>
       </div>
       
       <div class="card-body">
-        <span>Número de departamento : {{ $departamento->id }}</span>
+        <span>Número de deduccion : {{ $deduccion->id }}</span>
         
         <table class="table">
           <thead>
-            <th>Puestos</th>
             <th>Id</th>
-            <th>Sueldo base</th>
+            <th>Nombre</th>
+            <th>Monto</th>
           </thead>
           <tbody>
             <tr>
-              @foreach( $departamento->puestos as $d)
-                <td>{{ $d->puesto->nombre }}</td>
-                <td>{{ $d->puesto->sueldo_base }}</td>
-              @endforeach
+              <td>{{ $deduccion->id }}</td>
+              <td>{{ $deduccion->nombre }}</td>
+              <td>{{ $deduccion->monto }}</td>
             </tr>
           </tbody>
         </table>
@@ -32,13 +31,13 @@
     </div>
     
     <div class="card-footer">
-      <form method="POST" action="{{ route('departamentos.destroy', ['id'=>$departamento->id]) }}">
+      <form method="POST" action="{{ route('deducciones.destroy', ['deduccion'=>$deduccion]) }}">
         {{ csrf_field() }}
         {{ method_field('DELETE') }}
         
         <div class="form-group">
-          <a href="{{ url('/departamentos') }}" class="btn btn-primary">Volver</a>
-          <button type="submit" class="btn btn-danger">Eliminar departamento</button>
+          <a href="{{ url('/deducciones') }}" class="btn btn-primary">Volver</a>
+          <button type="submit" class="btn btn-danger">Eliminar deduccion</button>
         </div>
       </form>
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Nuevo departamento')
+@section('title', 'Nuevo deduccion')
 
 @section('content')
 
@@ -8,30 +8,26 @@
   <div class="col-md-6 offset-md-1">
     <div class="card">
       <div class="card-header">
-        <h1>Nuevo departamento</h1>
+        <h1>Nueva deduccion</h1>
       </div>
       
       <div class="card-body">
-        <form action="{{ action('DepartamentoController@store') }}" method="post" class="form-custom">
+        <form action="{{ action('DeduccionController@store') }}" method="post" class="form-custom">
           {{ csrf_field() }}
           
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" required>
+            <input type="text" max="100" class="form-control" name="nombre" id="nombre" required>
           </div>
           
           <div class="form-group">
-            <select class="form-control" name="tipo" id="tipo">
-              <label for="tipo">Tipo</label>
-              @foreach( $departamento->tipo as $tipo)
-                <option value="{{ $tipo }}">{{ $tipo }}</option>
-              @endforeach
-            </select>
+            <label for="monto">Monto</label>
+            <input type="number" max="1000" class="form-control" name="monto" required>
           </div>
       
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Registrar</button>
-            <a href="{{ url('/departamentos') }}" class="btn btn-primary">Volver</a>
+            <a href="{{ url('/deducciones') }}" class="btn btn-primary">Volver</a>
           </div>
         </form>
       </div>

@@ -18,9 +18,20 @@ Route::get('/', function () {
 Route::resources([
   "empleados" => "EmpleadoController",
   "departamentos" => "DepartamentoController",
-  "puestos" => "PuestoController"
+  "puestos" => "PuestoController",
+  "deducciones" => "DeduccionController",
+  "pagos" => "PagoController",
+  "nominas" => "NominaController",
 ]);
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('import-export-view', 'ExcelController@importExportView')->name('import.export.view');
+Route::post('import-file', 'ExcelController@importFile')->name('import.file');
+Route::get('export-file/{type}', 'ExcelController@exportFile')->name('export.file');
+
+
+
+
+

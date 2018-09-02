@@ -16,12 +16,14 @@ class CreatePagosTable extends Migration
         $table->unsignedInteger('empleado_id');
         $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('cascade');
         
-        $table->unsignedInteger('dia_id');
-        $table->foreign('dia_id')->references('id')->on('dias')->onDelete('cascade');
-        
+        $table->date('fecha')->nullable();
         $table->decimal('cantidad_dias')->default(0);
         $table->decimal('sueldo_semana')->nullable();
         $table->decimal('sueldo_a_pagar')->nullable();
+        $table->decimal('sueldo_interno')->nullable();
+        $table->decimal('extra')->nullable();
+        $table->decimal('vacaciones')->nullable();
+        $table->decimal('total_deduccions')->default(500);
         $table->decimal('sueldo_fiscal')->nullable();
         
         $table->boolean('pagado')->default(false);

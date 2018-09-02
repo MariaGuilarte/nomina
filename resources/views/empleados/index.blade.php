@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('title', 'Lista de empleados')
 
 @section('content')
 
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <div class="card">
       <div class="card-header">
         <h1>Todos los empleados</h1>
@@ -15,7 +15,7 @@
         <table class="main-table table table-sm table-hover table-responsive">
           <thead>
             <th>Id</th>
-            <th>Número micro sip</th>
+            <th>Micro sip</th>
             <th>Nombre</th>
             <th>Tipo</th>
             <th>Departamento</th>
@@ -33,9 +33,9 @@
               </td>
               <td>
                 {{ $empleado->nombre }}
-              </td>
+              </td>              
               <td>
-                {{ $empleado->tipo }}
+                {{ $empleado->departamento->tipo }}
               </td>
               <td>
                 {{ $empleado->departamento->nombre }}
@@ -71,7 +71,7 @@
     </div>
   </div>
   
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" href="{{ route('puestos.create') }}" role="tab">Nuevo puesto</a>
       <a class="list-group-item list-group-item-action" id="list-profile-list" href="{{ route('departamentos.create') }}" role="tab">Nuevo departamento</a>

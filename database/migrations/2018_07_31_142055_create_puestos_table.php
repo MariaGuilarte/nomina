@@ -12,7 +12,7 @@ class CreatePuestosTable extends Migration
       Schema::create('puestos', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nombre');
-        $table->integer('sueldo_base');
+        $table->decimal('sueldo_base');
         $table->unsignedInteger('departamento_id');
         $table->foreign('departamento_id')->references('id')->on('departamentos')->onDelete('cascade');
         $table->timestamps();

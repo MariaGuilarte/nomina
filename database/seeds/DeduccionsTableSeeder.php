@@ -6,9 +6,6 @@ class DeduccionsTableSeeder extends Seeder
 {
     public function run()
     {
-      DB::table('deduccions')->insert([
-        'nombre' => 'I.M.S.S',
-        'monto' => 40.10
-      ]);
+      factory( App\Deduccion::class, 15)->create();
     }
 }

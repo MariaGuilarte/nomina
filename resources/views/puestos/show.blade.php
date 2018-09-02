@@ -11,7 +11,7 @@
       </div>
       
       <div class="card-body">
-        Pertenece al departamento de : {{ $puesto->departamento->nombre }}
+        Departamento de : {{ $puesto->departamento->nombre }}
       </div>
       
       <div class="card-footer">

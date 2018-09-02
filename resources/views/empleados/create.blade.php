@@ -12,7 +12,6 @@
       </div>
       
       <form action="{{ action('EmpleadoController@store') }}" method="post" class="form-custom">
-        {{ csrf_field() }}
         <div class="card-body">
           <div class="form-group">
             <label for="nombre">Nombre</label>

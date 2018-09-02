@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empleado extends Model{
   
+  protected $fillable = [
+    'puesto_id', 'nombre', 'departamento_id', 'microsip'
+  ];
+  
   function departamento(){
     return $this->belongsTo('App\Departamento');
   }
@@ -14,19 +18,12 @@ class Empleado extends Model{
     return $this->belongsTo('App\Puesto');
   }
   
-  function dias_trabajos(){
-    return $this->hasMany('App\Diastrabajo');
-  }
- 
-  function semanas(){
-    return $this->hasMany('App\Semana');
-  }
-  
   function pagos(){
     return $this->hasMany('App\Pago');
   }
   
-  function dia(){
-    return $this->belongsTo('App\Dia');
-  }  
+  // DIAS DE TRABAJO
+  function semanas(){ 
+    return $this->belongsToMany('App\Semana', 'empleado_semana', 'empleado_id', 'semana_id')->withPivot('fecha', 'status');
+  }
 }

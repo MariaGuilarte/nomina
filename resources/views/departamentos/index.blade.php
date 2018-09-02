@@ -5,17 +5,16 @@
 @section('content')
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-9">
     <div class="card">
       <div class="card-header">
         <h1>Todos los departamentos</h1>
       </div>
       
       <div class="card-body">
-        <table class="main-table table table-sm table-hover table-responsive">
+        <table class="main-table table table-hover table-responsive">
           <thead>
-            <th>Número departamento</th>
-            <th>Nombre departamento</th>
+            <th>Departamento</th>
             <th>Tipo</th>
             <th>Opciones avanzadas</th>
           </thead>
@@ -23,12 +22,9 @@
           @foreach($departamentos as $departamento)
             <tr>
               <td>
-                {{ $departamento->id }}
-              </td>
-              <td>
                 {{ $departamento->nombre }}
               </td>
-              <td>Aquí va el tipo</td>
+              <td>{{ $departamento->tipo }}</td>
               <td>
                 <div class="btn-group d-flex justify-content-end">
                   <a href="{{ route('departamentos.show', ['departamento'=>$departamento]) }}" class="btn btn-primary btn-sm">
@@ -56,7 +52,7 @@
     </div>
   </div>
   
-  <div class="col-md-3 offset-md-1">
+  <div class="col-md-3">
     <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" href="{{ route('puestos.create') }}" role="tab">Nuevo puesto</a>
       <a class="list-group-item list-group-item-action" id="list-profile-list" href="{{ route('departamentos.create') }}" role="tab">Nuevo departamento</a>

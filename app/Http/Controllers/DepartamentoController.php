@@ -36,6 +36,7 @@ class DepartamentoController extends Controller
 
     public function show(Departamento $departamento)
     {
+      echo $departamento;
       return view('departamentos.show', ["departamento"=>$departamento]);
     }
 

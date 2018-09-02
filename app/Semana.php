@@ -5,16 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Semana extends Model
-{
-  function dias(){
-    return $this->hasMany('App\Dia');
+{ 
+  public function pagos(){
+    return $this->hasMany('App\Pago');
   }
   
-  function deducciones(){
-    return $this->hasMany('App\Deduccion');
+  public function empleados(){
+    return $this->belongsToMany('App\Empleado', 'empleado_semana', 'semana_id', 'empleado_id')->withPivot('fecha', 'status');
   }
   
-   function empleados(){
-    return $this->hasMany('App\Empleado');
+  public function nomina(){
+    return $this->hasOne('App\Nomina');
   }
 }

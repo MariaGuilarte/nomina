@@ -12,7 +12,6 @@ class CreateDeduccionsTable extends Migration
         $table->increments('id');
         $table->string('nombre');
         $table->decimal('monto');
-        $table->string('nota')->default('sin nota');
         $table->timestamps();
       });
     }

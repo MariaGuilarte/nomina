@@ -1,42 +1,33 @@
 @extends ('layouts.app')
 
-@section('id', 'Actualización de datos')
+@section('id', 'Actualización')
 
 @section('content')
 <div class="row">
   <div class="col-md-6 offset-md-1">
     <div class="card">
       <div class="card-header">
-        <h1>Actualizar datos del departamento {{ $departamento->nombre }}</h1>
+        <h1>Actualizar datos de {{ $deduccion->nombre }}</h1>
       </div>
       
       <div class="card-body">
-        <form action="{{ route('departamentos.update', ['departamento'=>$departamento]) }}" method="POST" class="form-custom">
+        <form action="{{ route('deducciones.update', ['deduccion'=>$deduccion]) }}" method="POST" class="form-custom">
           {{ csrf_field() }}
           {{ method_field('PUT') }}
           
           <div class="form-group">
-            <label for="id">Id departamento</label>
-            <input type="text" class="form-control" name="id" id="id" value="{{ $departamento->id }}">
-          </div>
-          
-          <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" value="{{ $departamento->nombre }}">
+            <input type="text" class="form-control" name="nombre" id="nombre" value="{{ $deduccion->nombre }}">
           </div>
           
           <div class="form-group">
-            <select class="form-control" name="tipo" id="tipo">
-              <label for="tipo">Tipo</label>
-              @foreach( $departamento->tipo as $tipo)
-                <option value="{{ $tipo }}">{{ $tipo }}</option>
-              @endforeach
-            </select>
+            <label for="monto">Monto</label>
+            <input type="number" max="10" class="form-control" name="monto" required>
           </div>
 
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ url('/departamentos') }}" class="btn btn-primary">Volver</a>
+            <a href="{{ url('/deducciones') }}" class="btn btn-primary">Volver</a>
           </div>
         </form>
       </div>

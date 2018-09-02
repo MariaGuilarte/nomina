@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Dia;
+use App\Bill;
 use Illuminate\Http\Request;
 
-class DiaController extends Controller
+class BillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DiaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dia  $dia
+     * @param  \App\Bill  $bill
      * @return \Illuminate\Http\Response
      */
-    public function show(Dia $dia)
+    public function show(Bill $bill)
     {
         //
     }
@@ -52,10 +52,10 @@ class DiaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dia  $dia
+     * @param  \App\Bill  $bill
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dia $dia)
+    public function edit(Bill $bill)
     {
         //
     }
@@ -64,10 +64,10 @@ class DiaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dia  $dia
+     * @param  \App\Bill  $bill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dia $dia)
+    public function update(Request $request, Bill $bill)
     {
         //
     }
@@ -75,10 +75,10 @@ class DiaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dia  $dia
+     * @param  \App\Bill  $bill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dia $dia)
+    public function destroy(Bill $bill)
     {
         //
     }

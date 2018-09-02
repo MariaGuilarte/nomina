@@ -26,8 +26,6 @@
           </a>
           @if( Auth::user() )
           
-          Nueva entrada
-          </a>
           @endif
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
@@ -67,7 +65,7 @@
           </div>
         </div>
       </nav>
-      <main class="py-4 container">
+      <main class="py-4 container-fluid">
         @if ($errors->any())
           <div class="alert alert-danger">
             <ul>
